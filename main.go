@@ -2,10 +2,9 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 func main() {
-	fmt.Println("Welcome")
-	fmt.Println(os.Hostname())
+	kernel_version := get_kernel()
+	fmt.Println(kernel_version)
 }
