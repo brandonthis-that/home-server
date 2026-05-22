@@ -33,3 +33,20 @@ func get_all_kernels() []string {
 	}
 	return kernels
 }
+
+func getOsVersion() string {
+	data, err := os.ReadFile("/etc/os-release")
+	if err != nil {
+		fmt.Println("Error getting OS Version", err)
+		return "Unknown"
+	}
+
+	lines := strings.Split(string(data), "\n")
+	for _, line := range lines {
+		if strings.HasPrefix(line, "PRETTY_NAME=") {
+			version := strings.TrimPrefix(line, "PRETTY_NAME=")
+			return strings.Trim(version, `'"`)
+		}
+	}
+	return "Unknown"
+}

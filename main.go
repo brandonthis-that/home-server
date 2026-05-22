@@ -11,5 +11,8 @@ func main() {
 	for _, k := range allKernels {
 		fmt.Println(k)
 	}
+
+	osVersion := getOsVersion()
+	fmt.Println(osVersion)
 	fmt.Println("All good")
 }
