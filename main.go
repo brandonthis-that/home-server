@@ -12,7 +12,11 @@ func main() {
 		fmt.Println(k)
 	}
 
-	osVersion := getOsVersion()
+	osVersion, err := getOsVersion()
+	if err != nil {
+		fmt.Println("Error", err)
+	}
+	fmt.Println(osVersion)
 	fmt.Println(osVersion)
 	fmt.Println("All good")
 }
