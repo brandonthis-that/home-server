@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func get_kernel() string {
+func getKernel() string {
 	kernel_file, err := os.Open("/proc/version")
 	if err != nil {
 		fmt.Println("Error", err)
@@ -19,7 +19,7 @@ func get_kernel() string {
 	return strings.TrimSpace(kernel_list[2])
 }
 
-func get_all_kernels() []string {
+func getAllKernels() []string {
 	entries, err := os.ReadDir("/boot")
 	if err != nil {
 		fmt.Println("Error", err)

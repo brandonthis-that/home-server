@@ -2,21 +2,25 @@ package main
 
 import (
 	"fmt"
+	"log"
 )
 
 func main() {
-	kernel_version := get_kernel()
-	allKernels := get_all_kernels()
-	fmt.Println(kernel_version)
+	// get current kernel
+	kernelVersion := getKernel()
+	fmt.Println("Current kernel: ", kernelVersion)
+
+	//get all kernels
+	allKernels := getAllKernels()
+	fmt.Println("All Available Kernels:")
 	for _, k := range allKernels {
-		fmt.Println(k)
+		fmt.Printf(" - %s\n", k)
 	}
 
+	// get OS Version
 	osVersion, err := getOsVersion()
 	if err != nil {
-		fmt.Println("Error", err)
+		log.Fatalf("Error fetching OS Version: %v", err)
 	}
-	fmt.Println(osVersion)
-	fmt.Println(osVersion)
-	fmt.Println("All good")
+	fmt.Println("OS Version: ", osVersion)
 }
