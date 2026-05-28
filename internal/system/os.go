@@ -1,4 +1,4 @@
-package main
+package system
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func getOsVersion() (string, error) {
+func GetOsVersion() (string, error) {
 	data, err := os.ReadFile("/etc/os-release")
 	if err != nil {
 		return "Unknown", fmt.Errorf("reading os-release: %w", err)
