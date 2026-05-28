@@ -3,15 +3,17 @@ package main
 import (
 	"fmt"
 	"log"
+
+	"github.com/brandonthis-that/home-server/internal/system"
 )
 
 func main() {
 	// get current kernel
-	kernelVersion := getKernel()
+	kernelVersion := system.GetKernel()
 	fmt.Println("Current kernel: ", kernelVersion)
 
 	//get all kernels
-	allKernels := getAllKernels()
+	allKernels := system.GetAllKernels()
 	fmt.Println("All Available Kernels:")
 	for _, k := range allKernels {
 		fmt.Printf(" - %s\n", k)
@@ -24,5 +26,3 @@ func main() {
 	}
 	fmt.Println("OS Version: ", osVersion)
 }
-
-// a random comment
